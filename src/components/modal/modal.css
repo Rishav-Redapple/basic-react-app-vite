@@ -1,0 +1,11 @@
+#modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  isolation: isolate;
+  background-color: color-mix(in oklab, black 60%, blue 12%);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(12px);
+  height: 100vh;
+}
