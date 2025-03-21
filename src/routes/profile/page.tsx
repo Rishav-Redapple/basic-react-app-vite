@@ -28,7 +28,7 @@ export default function Profile() {
     if (!user) return;
 
     const updatedUserData: User = {
-      image: (image && URL.createObjectURL(image)) || user.image,
+      image: image ? URL.createObjectURL(image) : user.image,
       name: (formdata.get("name") as string) || user.name,
       email: (formdata.get("email") as string) || user.email,
       username: (formdata.get("username") as string) || user.username,

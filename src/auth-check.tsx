@@ -1,7 +1,6 @@
 import { ReactNode, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { InitialState } from "./lib/store";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "./lib/hooks";
 
 export default function AuthCheck({
   children,
@@ -9,7 +8,7 @@ export default function AuthCheck({
   readonly children: ReactNode;
 }) {
   const goto = useNavigate();
-  const { user } = useSelector((state: InitialState) => state.user);
+  const user = useUser();
 
   useEffect(() => {
     if (!user) {
@@ -18,7 +17,7 @@ export default function AuthCheck({
     }
   }, [user, goto]);
 
-  if (!user) return <>No user</>;
+  if (!user) return <></>;
 
   return <>{children}</>;
 }
